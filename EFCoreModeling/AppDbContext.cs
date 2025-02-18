@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,5 +21,9 @@ namespace EFCoreModeling
             optionsBuilder.UseSqlServer(connectionString);
         }
         public DbSet<Employee> employees{ get; set; }
+        [NotMapped]
+        public DbSet<Departments> departments{ get; set; }
+        [NotMapped]
+        public DbSet<Products> products{ get; set; }
     }
 }
