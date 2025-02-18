@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EFCoreModeling.Models
 {
-    [Table("Department")]
+    [Table("Department",Schema ="Departments")]
     public class Departments
     {
         public int Id { get; set; }

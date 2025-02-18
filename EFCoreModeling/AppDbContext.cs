@@ -20,10 +20,20 @@ namespace EFCoreModeling
             var connectionString = config.GetSection("ConnectionStrings:constr").Value;
             optionsBuilder.UseSqlServer(connectionString);
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.HasDefaultSchema("--''--")//Default Schema for all Tables
+            //modelBuilder.Entity<Employee>().HasKey(b => new { b.FirstName, b.LastName });// Composite Format Key
+            modelBuilder.Entity<Employee>()
+                .HasKey(k => k.Id)
+                .HasName("PK_ID");
+            modelBuilder.Ignore<Departments>();
+            modelBuilder.Ignore<Products>();
+        }
         public DbSet<Employee> employees{ get; set; }
-        [NotMapped]
+        //[NotMapped]
         public DbSet<Departments> departments{ get; set; }
-        [NotMapped]
+        //[NotMapped]
         public DbSet<Products> products{ get; set; }
     }
 }

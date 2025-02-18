@@ -46,7 +46,7 @@ namespace EFCoreModeling.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("employees");
+                    b.ToTable("employees", (string)null);
                 });
 #pragma warning restore 612, 618
         }
