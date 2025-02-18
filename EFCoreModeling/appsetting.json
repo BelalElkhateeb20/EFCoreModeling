@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "constr": "Server=(localdb)\\ProjectModels;Database=EFCoreModels;Trusted_Connection=True;TrustServerCertificate=True"
+  }
+}
