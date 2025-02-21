@@ -29,6 +29,9 @@ namespace EFCoreModeling
                 .HasName("PK_ID");
             modelBuilder.Ignore<Departments>();
             modelBuilder.Ignore<Products>();
+            modelBuilder.Entity<Employee>()
+                .Property(p => p.FullName)
+                .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
         }
         public DbSet<Employee> employees{ get; set; }
         //[NotMapped]
