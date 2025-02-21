@@ -13,5 +13,8 @@ namespace EFCoreModeling.Models
         public int Id { get; set; }
         public string? ShortName { get; set; }
         public string? LongName { get; set; }
+        public Employee employee { get; set; } = null!;
+        public int EmployeeId { get; set; }
+
     }
 }

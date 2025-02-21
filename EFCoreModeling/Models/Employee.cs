@@ -24,6 +24,7 @@ namespace EFCoreModeling.Models
         //[Comment("the DepatmentID  ")]
         public int DepartmentId { get; set; }
         public string? FullName { get; set; }
+        public Departments departments { get; set; } = null!;
 
     }
 }

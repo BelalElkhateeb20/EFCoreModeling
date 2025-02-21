@@ -13,7 +13,7 @@ namespace EFCoreModeling
             using(var context =new AppDbContext())
             {
                 var emp1 = context.employees.Find(1);
-                emp1.FirstName = "MOhamed";
+                emp1!.FirstName = "MOhamed";
                 context.SaveChanges();
             }
         }

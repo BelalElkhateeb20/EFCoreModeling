@@ -27,11 +27,15 @@ namespace EFCoreModeling
             modelBuilder.Entity<Employee>()
                 .HasKey(k => k.Id)
                 .HasName("PK_ID");
-            modelBuilder.Ignore<Departments>();
+            //modelBuilder.Ignore<Departments>();
             modelBuilder.Ignore<Products>();
             modelBuilder.Entity<Employee>()
                 .Property(p => p.FullName)
                 .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
+            modelBuilder.Entity<Employee>()
+                .HasOne(p => p.departments)
+                .WithOne(b => b.employee)
+                .HasForeignKey<Departments>(p => p.EmployeeId);
         }
         public DbSet<Employee> employees{ get; set; }
         //[NotMapped]
